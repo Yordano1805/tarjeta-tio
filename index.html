@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz Cumpleaños Tío José</title>
+<title>Feliz Cumpleaños Musulmán</title>
 <style>
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
   body {
     margin: 0;
@@ -34,16 +32,14 @@
     background: rgba(255, 255, 255, 0.25);
     padding: 35px 25px;
     border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
     backdrop-filter: blur(10px);
     transition: all 1s ease-in-out;
     width: 90%;
     max-width: 400px;
   }
 
-  .hidden {
-    display: none;
-  }
+  .hidden { display: none; }
 
   .btn {
     background: linear-gradient(135deg, #00b4d8, #0077b6);
@@ -54,7 +50,7 @@
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 20px rgba(0, 183, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0,183,255,0.5);
     width: 100%;
   }
 
@@ -72,7 +68,6 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
   }
 
-  /* 🌈 NUEVO: colores cálidos brillantes para el texto */
   h1 {
     font-size: 1.9em;
     background: linear-gradient(90deg, #ff6b6b, #ffd166, #ff9f1c, #ff6b6b);
@@ -81,7 +76,7 @@
     color: transparent;
     animation: shine 3s linear infinite;
     margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(255, 230, 150, 0.6);
+    text-shadow: 0 0 10px rgba(255,230,150,0.6);
   }
 
   @keyframes shine {
@@ -108,17 +103,10 @@
     to { transform: scale(1); opacity: 1; }
   }
 
-  /* Confeti y globos */
-  .confetti, .balloon {
-    position: absolute;
-    pointer-events: none;
-  }
+  .confetti, .balloon { position: absolute; pointer-events: none; }
 
   .balloon {
-    width: 40px;
-    height: 50px;
     border-radius: 50% 50% 45% 45%;
-    background: radial-gradient(circle, #ffb703, #fb8500);
     animation: floatUp 6s ease-in infinite;
   }
 
@@ -132,13 +120,11 @@
     100% { transform: translateY(100vh) rotate(720deg); }
   }
 
-  /* Modo móvil */
   @media (max-width: 600px) {
     h1 { font-size: 1.7em; }
     p { font-size: 1em; }
     .btn { font-size: 16px; padding: 12px 25px; }
   }
-
 </style>
 </head>
 <body>
@@ -153,9 +139,9 @@
 <!-- Mensaje de cumpleaños -->
 <div class="card hidden" id="messageCard">
   <div class="message">
-    <img src="img.jpg" alt="Tío José">
-    <h1>🎉 FELIZ CUMPLEAÑOS TÍO JOSÉ 🎉</h1>
-    <p>Gracias por ser el mejor tío, ¡lo quiero mucho! 💙</p>
+    <img src="img.jpg" alt="Feliz Cumpleaños">
+    <h1>🎉 FELIZ CUMPLEAÑOS MUSULMÁN 🎉</h1>
+    <p>Que la pases bien en tu día, hermano 💙</p>
     <button class="btn" id="restartBtn">🔁 Ver otra vez</button>
   </div>
 </div>
@@ -186,7 +172,6 @@ restart.addEventListener("click", () => {
   stopBalloons();
 });
 
-// Confeti al inicio
 function launchConfetti() {
   for (let i = 0; i < 80; i++) {
     const confetti = document.createElement("div");
@@ -203,38 +188,31 @@ function launchConfetti() {
   }
 }
 
-// Globos continuos con movimiento lateral y rotación
 function startBalloons() {
   balloonInterval = setInterval(() => {
     const balloon = document.createElement("div");
     balloon.classList.add("balloon");
 
-    // Tamaño aleatorio
     const size = 30 + Math.random() * 40;
     balloon.style.width = size + "px";
     balloon.style.height = size * 1.2 + "px";
 
-    // Posición inicial horizontal
     const startX = Math.random() * window.innerWidth;
     balloon.style.left = startX + "px";
 
-    // Color aleatorio
     balloon.style.background = `radial-gradient(circle, ${randomColor()}, ${randomColor()})`;
 
-    // Duración aleatoria
     const duration = 4 + Math.random() * 4;
-
-    // Movimiento lateral aleatorio
-    const amplitude = 20 + Math.random() * 30; // cuánto se moverá a los lados
-    const rotation = (Math.random() * 60 - 30); // rotación inicial aleatoria
+    const amplitude = 20 + Math.random() * 30;
+    const rotation = Math.random() * 60 - 30;
 
     balloon.style.animation = `floatSide ${duration}s linear forwards`;
 
-    // Agregar keyframes dinámicamente para cada globo
+    // keyframes dinámicas para cada globo
     const style = document.createElement('style');
     style.innerHTML = `
       @keyframes floatSide {
-        0% { transform: translate(${0}px, 0) rotate(${rotation}deg); }
+        0% { transform: translate(0px, 0) rotate(${rotation}deg); }
         25% { transform: translate(${amplitude}px, -${duration*25}px) rotate(${rotation + 15}deg); }
         50% { transform: translate(-${amplitude}px, -${duration*50}px) rotate(${rotation - 15}deg); }
         75% { transform: translate(${amplitude/2}px, -${duration*75}px) rotate(${rotation + 10}deg); }
@@ -261,3 +239,6 @@ function randomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 </script>
+
+</body>
+</html>
